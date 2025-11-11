@@ -1,14 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {HeaderComponentComponent} from '../../shared/header/header.component.component';
+import { HeaderComponentComponent } from '../../shared/header/header.component.component';
 
 @Component({
   selector: 'app-main',
-  imports: [
-    HeaderComponentComponent
-  ],
+  imports: [HeaderComponentComponent],
   templateUrl: './main.component.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainComponentComponent {
-
-}
+export class MainComponentComponent {}

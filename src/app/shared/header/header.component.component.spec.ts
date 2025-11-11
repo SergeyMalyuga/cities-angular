@@ -8,9 +8,8 @@ describe('HeaderComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponentComponent]
-    })
-    .compileComponents();
+      imports: [HeaderComponentComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponentComponent);
     component = fixture.componentInstance;
