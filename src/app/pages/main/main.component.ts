@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
   private store: Store<AppState> = inject(Store<AppState>);
   private destroySubject: Subject<void> = new Subject<void>();
   public offers: WritableSignal<OfferPreview[]> = signal<OfferPreview[]>([]);
-  public offerAmount = computed(() => this.offers().length)
+  public offerAmount = computed(() => this.offers().length);
 
   public ngOnInit(): void {
     this.store.select(selectOffers).pipe(takeUntil(this.destroySubject))
