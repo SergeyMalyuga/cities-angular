@@ -1,12 +1,13 @@
-import {createEntityAdapter, EntityAdapter} from '@ngrx/entity';
-import {OfferPreview} from '../../core/models/offers';
-import {OffersState} from '../../core/models/offers.state';
-import {createReducer} from '@ngrx/store';
+import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
+import { OfferPreview } from '../../core/models/offers';
+import { OffersState } from '../../core/models/offers.state';
+import { createReducer } from '@ngrx/store';
 
-export const offerAdapter: EntityAdapter<OfferPreview> = createEntityAdapter<OfferPreview>();
+export const offerAdapter: EntityAdapter<OfferPreview> =
+  createEntityAdapter<OfferPreview>();
 const initialState: OffersState = offerAdapter.getInitialState({
   isLoading: false,
-  error: null
+  error: null,
 });
 
-export const offerReducer = createReducer(initialState)
+export const offerReducer = createReducer(initialState);
