@@ -6,9 +6,7 @@ export const routes: Routes = [
     path: AppRoute.MAIN,
     title: 'Main',
     loadComponent: () =>
-      import('./pages/main/main.component').then(
-        (m) => m.MainComponent,
-      ),
+      import('./pages/main/main.component').then((m) => m.MainComponent),
   },
   {
     path: `${AppRoute.OFFER}/:id`,

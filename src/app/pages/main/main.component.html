@@ -6,32 +6,74 @@
       <section class="locations container">
         <ul class="locations__list tabs__list">
           <li class="locations__item">
-            <a class="locations__item-link tabs__item" href="#">
+            <a
+              appChangeCity
+              [city]="CityName.PARIS | cityByName"
+              [currentCity]="currentCity()"
+              class="locations__item-link tabs__item"
+              (cityChanged)="onCityChanged($event)"
+              href="#"
+            >
               <span>Paris</span>
             </a>
           </li>
           <li class="locations__item">
-            <a class="locations__item-link tabs__item" href="#">
+            <a
+              appChangeCity
+              [city]="CityName.COLOGNE | cityByName"
+              [currentCity]="currentCity()"
+              class="locations__item-link tabs__item"
+              (cityChanged)="onCityChanged($event)"
+              href="#"
+            >
               <span>Cologne</span>
             </a>
           </li>
           <li class="locations__item">
-            <a class="locations__item-link tabs__item" href="#">
+            <a
+              appChangeCity
+              [city]="CityName.BRUSSELS | cityByName"
+              [currentCity]="currentCity()"
+              class="locations__item-link tabs__item"
+              (cityChanged)="onCityChanged($event)"
+              href="#"
+            >
               <span>Brussels</span>
             </a>
           </li>
           <li class="locations__item">
-            <a class="locations__item-link tabs__item tabs__item--active">
+            <a
+              appChangeCity
+              [city]="CityName.AMSTERDAM | cityByName"
+              [currentCity]="currentCity()"
+              class="locations__item-link tabs__item"
+              (cityChanged)="onCityChanged($event)"
+              href="#"
+            >
               <span>Amsterdam</span>
             </a>
           </li>
           <li class="locations__item">
-            <a class="locations__item-link tabs__item" href="#">
+            <a
+              appChangeCity
+              [city]="CityName.HAMBURG | cityByName"
+              [currentCity]="currentCity()"
+              class="locations__item-link tabs__item"
+              (cityChanged)="onCityChanged($event)"
+              href="#"
+            >
               <span>Hamburg</span>
             </a>
           </li>
           <li class="locations__item">
-            <a class="locations__item-link tabs__item" href="#">
+            <a
+              appChangeCity
+              [city]="CityName.DUSSELDORF | cityByName"
+              [currentCity]="currentCity()"
+              class="locations__item-link tabs__item"
+              (cityChanged)="onCityChanged($event)"
+              href="#"
+            >
               <span>Dusseldorf</span>
             </a>
           </li>
@@ -42,7 +84,10 @@
       <div class="cities__places-container container">
         <section class="cities__places places">
           <h2 class="visually-hidden">Places</h2>
-          <b class="places__found">{{offerAmount()}} places to stay in Amsterdam</b>
+          <b class="places__found"
+            >{{ (offers() | offersByCity: currentCity()).length }} places to
+            stay in Amsterdam</b
+          >
           <form class="places__sorting" action="#" method="get">
             <span class="places__sorting-caption">Sort by</span>
             <span class="places__sorting-type" tabindex="0">
@@ -63,8 +108,11 @@
             </ul>
           </form>
           <div class="cities__places-list places__list tabs__content">
-            @for (offer of offers(); track offer.id) {
-              <app-card [offer]="offer"/>
+            @for (
+              offer of offers() | offersByCity: currentCity();
+              track offer.id
+            ) {
+              <app-card [offer]="offer" />
             }
           </div>
         </section>

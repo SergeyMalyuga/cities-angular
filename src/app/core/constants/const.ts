@@ -21,6 +21,15 @@ export enum AuthorizationStatus {
   UNKNOWN = 'unknown',
 }
 
+export enum CityName {
+  PARIS = 'Paris',
+  COLOGNE = 'Cologne',
+  BRUSSELS = 'Brussels',
+  AMSTERDAM = 'Amsterdam',
+  HAMBURG = 'Hamburg',
+  DUSSELDORF = 'Dusseldorf',
+}
+
 export const CITY_LOCATIONS: City[] = [
   {
     name: 'Paris',

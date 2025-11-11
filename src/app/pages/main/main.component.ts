@@ -1,15 +1,35 @@
-import {ChangeDetectionStrategy, Component, computed, inject, OnInit, signal, WritableSignal} from '@angular/core';
-import {HeaderComponentComponent} from '../../shared/header/header.component.component';
-import {Store} from '@ngrx/store';
-import {AppState} from '../../core/models/app.state';
-import {OfferPreview} from '../../core/models/offers';
-import {selectOffers} from '../../store/app/selectors/app.selectors';
-import {Subject, takeUntil} from 'rxjs';
-import {CardComponent} from '../../shared/card/card.component';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  OnInit,
+  signal,
+  WritableSignal,
+} from '@angular/core';
+import { HeaderComponentComponent } from '../../shared/header/header.component.component';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../core/models/app.state';
+import { OfferPreview } from '../../core/models/offers';
+import { selectOffers } from '../../store/app/selectors/app.selectors';
+import { Subject, takeUntil } from 'rxjs';
+import { CardComponent } from '../../shared/card/card.component';
+import { City } from '../../core/models/city';
+import { CityName, DEFAULT_CITY } from '../../core/constants/const';
+import { OffersByCityPipe } from './pipes/offers-by-city.pipe';
+import { ChangeCityDirective } from './directives/change-city.directive';
+import { CityByNamePipe } from './pipes/city-by-name.pipe';
+import { changeCity } from '../../store/city/actions/city.actions';
 
 @Component({
   selector: 'app-main',
-  imports: [HeaderComponentComponent, CardComponent],
+  imports: [
+    HeaderComponentComponent,
+    CardComponent,
+    OffersByCityPipe,
+    ChangeCityDirective,
+    CityByNamePipe,
+  ],
   templateUrl: './main.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -17,10 +37,18 @@ export class MainComponent implements OnInit {
   private store: Store<AppState> = inject(Store<AppState>);
   private destroySubject: Subject<void> = new Subject<void>();
   public offers: WritableSignal<OfferPreview[]> = signal<OfferPreview[]>([]);
-  public offerAmount = computed(() => this.offers().length);
+  public currentCity: WritableSignal<City> = signal<City>(DEFAULT_CITY);
+  public readonly CityName = CityName;
 
   public ngOnInit(): void {
-    this.store.select(selectOffers).pipe(takeUntil(this.destroySubject))
-      .subscribe((offers: OfferPreview[]) => this.offers.set(offers))
+    this.store
+      .select(selectOffers)
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((offers: OfferPreview[]) => this.offers.set(offers));
+  }
+
+  public onCityChanged(city: City): void {
+    this.currentCity.set(city);
+    this.store.dispatch(changeCity({ city }));
   }
 }
