@@ -10,7 +10,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import {CityEffects} from './store/city/effects/city.effects';
+import { CityEffects } from './store/city/effects/city.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [

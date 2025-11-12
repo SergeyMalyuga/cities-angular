@@ -1,5 +1,5 @@
-import {createAction, props} from '@ngrx/store';
-import {City} from '../../../core/models/city';
+import { createAction, props } from '@ngrx/store';
+import { City } from '../../../core/models/city';
 
 export const changeCity = createAction(
   '[Main Component] change City',
@@ -10,5 +10,6 @@ export const changeCitySuccess = createAction(
   props<{ city: City }>(),
 );
 export const changeCityFailure = createAction(
-  '[Main Component] change City Failure', props<{ error: string }>(),
+  '[Main Component] change City Failure',
+  props<{ error: string }>(),
 );

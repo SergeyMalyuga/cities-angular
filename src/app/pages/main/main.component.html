@@ -1,5 +1,5 @@
 <div class="page page--gray page--main">
-  <app-header/>
+  <app-header />
   <main class="page__main page__main--index">
     <h1 class="visually-hidden">Cities</h1>
     <div class="tabs">
@@ -85,14 +85,21 @@
         <section class="cities__places places">
           <h2 class="visually-hidden">Places</h2>
           <b class="places__found"
-          >{{ (offers() | offersByCity: currentCity()).length }} places to
+            >{{ (offers() | offersByCity: currentCity()).length }} places to
             stay in Amsterdam</b
           >
-          <app-form-sorting/>
+          <app-form-sorting
+            [currentSortType]="currentSortType()"
+            (sortChanged)="onSortTypeChanged($event)"
+          />
           <div class="cities__places-list places__list tabs__content">
-            @for (offer of offers() | offersByCity: currentCity();
-              track offer.id) {
-              <app-card [offer]="offer"/>
+            @for (
+              offer of offers()
+                | offersByCity: currentCity()
+                | offerSort: currentSortType();
+              track offer.id
+            ) {
+              <app-card [offer]="offer" />
             }
           </div>
         </section>

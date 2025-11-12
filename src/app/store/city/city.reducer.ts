@@ -15,7 +15,9 @@ export const cityReducer = createReducer(
     ...state,
   })),
   on(changeCitySuccess, (state: City, { city }) => ({
-    ...state, name: city.name, location: city.location,
+    ...state,
+    name: city.name,
+    location: city.location,
   })),
   on(changeCityFailure, (state: City) => ({
     ...state,
