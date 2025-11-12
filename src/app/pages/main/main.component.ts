@@ -20,6 +20,7 @@ import { OffersByCityPipe } from './pipes/offers-by-city.pipe';
 import { ChangeCityDirective } from './directives/change-city.directive';
 import { CityByNamePipe } from './pipes/city-by-name.pipe';
 import { changeCity } from '../../store/city/actions/city.actions';
+import {FormSortingComponent} from '../../features/form-sorting/form-sorting.component';
 
 @Component({
   selector: 'app-main',
@@ -29,6 +30,7 @@ import { changeCity } from '../../store/city/actions/city.actions';
     OffersByCityPipe,
     ChangeCityDirective,
     CityByNamePipe,
+    FormSortingComponent,
   ],
   templateUrl: './main.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
