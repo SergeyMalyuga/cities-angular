@@ -7,14 +7,35 @@
               </svg>
             </span>
   <ul
-    appCloseFormSorting [isSortFormOpen]="isSortFormOpen()" (formSortClosed)="onFormSortClosed()" class="places__options places__options--custom"
+    appCloseFormSorting [isSortFormOpen]="isSortFormOpen()" (formSortClosed)="onFormSortClosed()"
+    class="places__options places__options--custom"
     [class.places__options--opened]="isSortFormOpen()"
   >
-    <li class="places__option places__option--active" tabindex="0">
+    <li
+      appSelectSortType
+      [currentSortType]="currentSortType()"
+      [sortType]="SortType.POPULAR"
+      (sortTypeSelected)="onSortTypeSelected($event)"
+      class="places__option" tabindex="0">
       Popular
     </li>
-    <li class="places__option" tabindex="0">Price: low to high</li>
-    <li class="places__option" tabindex="0">Price: high to low</li>
-    <li class="places__option" tabindex="0">Top rated first</li>
+    <li
+      appSelectSortType
+      [currentSortType]="currentSortType()"
+      [sortType]="SortType.PRICE_LOW_TO_HIGH"
+      (sortTypeSelected)="onSortTypeSelected($event)"
+      class="places__option" tabindex="0">Price: low to high</li>
+    <li
+      appSelectSortType
+      [currentSortType]="currentSortType()"
+      [sortType]="SortType.PRICE_HIGH_TO_LOW"
+      (sortTypeSelected)="onSortTypeSelected($event)"
+      class="places__option" tabindex="0">Price: high to low</li>
+    <li
+      appSelectSortType
+      [currentSortType]="currentSortType()"
+      [sortType]="SortType.TOP_RATED_FIRST"
+      (sortTypeSelected)="onSortTypeSelected($event)"
+      class="places__option" tabindex="0">Top rated first</li>
   </ul>
 </form>

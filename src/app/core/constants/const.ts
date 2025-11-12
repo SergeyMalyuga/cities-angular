@@ -90,7 +90,7 @@ export const DEFAULT_CITY: City = {
   },
 };
 
-export enum sortType {
+export enum SortType {
   POPULAR = 'Popular',
   PRICE_LOW_TO_HIGH = 'Price: low to high',
   PRICE_HIGH_TO_LOW = 'Price: high to low',
@@ -98,10 +98,10 @@ export enum sortType {
 }
 
 export const sortTypeKeys = {
-  [sortType.POPULAR]: 'POPULAR',
-  [sortType.PRICE_LOW_TO_HIGH]: 'PRICE_LOW_TO_HIGH',
-  [sortType.PRICE_HIGH_TO_LOW]: 'PRICE_HIGH_TO_LOW',
-  [sortType.TOP_RATED_FIRST]: 'TOP_RATED_FIRST',
+  [SortType.POPULAR]: 'POPULAR',
+  [SortType.PRICE_LOW_TO_HIGH]: 'PRICE_LOW_TO_HIGH',
+  [SortType.PRICE_HIGH_TO_LOW]: 'PRICE_HIGH_TO_LOW',
+  [SortType.TOP_RATED_FIRST]: 'TOP_RATED_FIRST',
 };
 
 export const QUANTITY_FIRST_OFFERS = 3;
