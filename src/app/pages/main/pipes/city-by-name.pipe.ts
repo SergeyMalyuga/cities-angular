@@ -1,9 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { CITY_LOCATIONS, DEFAULT_CITY } from '../../../core/constants/const';
-import { City } from '../../../core/models/city';
+import {Pipe, PipeTransform} from '@angular/core';
+import {CITY_LOCATIONS, DEFAULT_CITY} from '../../../core/constants/const';
+import {City} from '../../../core/models/city';
 
 @Pipe({
-  name: 'cityByName',
+  name: 'cityByName'
 })
 export class CityByNamePipe implements PipeTransform {
   transform(value: string): City {

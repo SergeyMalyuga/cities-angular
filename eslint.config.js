@@ -30,6 +30,7 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      "comma-dangle": ["error", { arrays: "always" }],
     },
   },
   {

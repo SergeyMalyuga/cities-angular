@@ -1,9 +1,9 @@
-import { inject, Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { OfferService } from '../../../core/services/offer.service';
+import {inject, Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {OfferService} from '../../../core/services/offer.service';
 import * as actions from '../actions/offer.actions';
-import { catchError, map, of, switchMap } from 'rxjs';
-import { OfferPreview } from '../../../core/models/offers';
+import {catchError, map, of, switchMap} from 'rxjs';
+import {OfferPreview} from '../../../core/models/offers';
 
 @Injectable()
 export class OfferEffects {
@@ -16,11 +16,11 @@ export class OfferEffects {
       switchMap(() =>
         this.offerService.getOffers().pipe(
           map((offers: OfferPreview[]) =>
-            actions.loadOffersSuccess({ offers }),
+            actions.loadOffersSuccess({ offers })
           ),
-          catchError(() => of(actions.loadOffersFailure())),
-        ),
-      ),
-    ),
+          catchError(() => of(actions.loadOffersFailure()))
+        )
+      )
+    )
   );
 }

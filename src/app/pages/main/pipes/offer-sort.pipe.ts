@@ -1,18 +1,18 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { OfferPreview } from '../../../core/models/offers';
-import { SortType } from '../../../core/constants/const';
+import {Pipe, PipeTransform} from '@angular/core';
+import {OfferPreview} from '../../../core/models/offers';
+import {SortType} from '../../../core/constants/const';
 
 @Pipe({
-  name: 'offerSort',
+  name: 'offerSort'
 })
 export class OfferSortPipe implements PipeTransform {
   transform(offers: OfferPreview[], sortType: SortType): OfferPreview[] {
     if (!offers?.length) return [];
-    const offersCopy = [...offers];
+    const offersCopy = [...offers,];
 
     switch (sortType) {
       case SortType.POPULAR: {
-        return [...offers];
+        return [...offers,];
       }
       case SortType.PRICE_LOW_TO_HIGH: {
         return offersCopy.sort((a, b) => a.price - b.price);

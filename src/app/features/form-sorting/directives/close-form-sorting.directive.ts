@@ -1,13 +1,7 @@
-import {
-  Directive,
-  EventEmitter,
-  HostListener,
-  Input,
-  Output,
-} from '@angular/core';
+import {Directive, EventEmitter, HostListener, Input, Output} from '@angular/core';
 
 @Directive({
-  selector: '[appCloseFormSorting]',
+  selector: '[appCloseFormSorting]'
 })
 export class CloseFormSortingDirective {
   @Input({ required: true }) isSortFormOpen!: boolean;
