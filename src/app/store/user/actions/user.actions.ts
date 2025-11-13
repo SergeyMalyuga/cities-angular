@@ -23,3 +23,9 @@ export const loginFailure = createAction(
   '[Login Component] Login Failure',
   props<{ error: string }>(),
 );
+export const logout = createAction('[Header Component] Logout');
+export const logoutSuccess = createAction('[Header Component] Logout Success');
+export const logoutFailure = createAction(
+  '[Header Component] Logout Failure',
+  props<{ error: string }>(),
+);

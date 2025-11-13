@@ -28,6 +28,9 @@
           <li class="header__nav-item">
             <a
               class="header__nav-link"
+              appSignOut
+              [authStatus]="authStatus()"
+              (signedOut)="onSignedOut()"
               [routerLink]="
                 authStatus() === AuthorizationStatus.AUTH
                   ? null

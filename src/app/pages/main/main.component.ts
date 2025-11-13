@@ -6,7 +6,7 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { HeaderComponentComponent } from '../../shared/header/header.component.component';
+import { HeaderComponent } from '../../shared/header/header.component';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../core/models/app.state';
 import { OfferPreview } from '../../core/models/offers';
@@ -25,7 +25,7 @@ import { OfferSortPipe } from './pipes/offer-sort.pipe';
 @Component({
   selector: 'app-main',
   imports: [
-    HeaderComponentComponent,
+    HeaderComponent,
     CardComponent,
     OffersByCityPipe,
     ChangeCityDirective,
