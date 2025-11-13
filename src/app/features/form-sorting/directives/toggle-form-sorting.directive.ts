@@ -1,7 +1,7 @@
 import { Directive, EventEmitter, HostListener, Output } from '@angular/core';
 
 @Directive({
-  selector: '[appToggleFormSort]'
+  selector: '[appToggleFormSort]',
 })
 export class ToggleFormSortDirective {
   @Output() formToggled: EventEmitter<void> = new EventEmitter<void>();

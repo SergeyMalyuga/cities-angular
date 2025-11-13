@@ -4,7 +4,7 @@ import { HeaderComponentComponent } from '../../shared/header/header.component.c
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.component.html',
-  imports: [HeaderComponentComponent,],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [HeaderComponentComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavoritesComponentComponent {}

@@ -4,12 +4,12 @@ import {
   HostBinding,
   HostListener,
   Input,
-  Output
+  Output,
 } from '@angular/core';
 import { City } from '../../../core/models/city';
 
 @Directive({
-  selector: '[appChangeCity]'
+  selector: '[appChangeCity]',
 })
 export class ChangeCityDirective {
   @Input({ required: true }) city!: City;
@@ -21,7 +21,7 @@ export class ChangeCityDirective {
     return this.currentCity.name === this.city.name;
   }
 
-  @HostListener('click', ['$event',])
+  @HostListener('click', ['$event'])
   onChangeCity(evt: MouseEvent) {
     evt.preventDefault();
     this.cityChanged.emit(this.city);

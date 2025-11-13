@@ -8,17 +8,18 @@ import { provideEffects } from '@ngrx/effects';
 import { OfferEffects } from './store/offer/effects/offer.effects';
 import {
   provideHttpClient,
-  withInterceptorsFromDi
+  withInterceptorsFromDi,
 } from '@angular/common/http';
 import { CityEffects } from './store/city/effects/city.effects';
 import { UserAuthEffects } from './store/user/effects/user-auth.effects';
+import {UserLoginEffects} from './store/user/effects/user-login.effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore(appReducer),
-    provideEffects(OfferEffects, CityEffects, UserAuthEffects),
+    provideEffects(OfferEffects, CityEffects, UserAuthEffects, UserLoginEffects),
     provideHttpClient(withInterceptorsFromDi()),
-  ]
+  ],
 };

@@ -3,8 +3,8 @@ import { HeaderComponentComponent } from '../../shared/header/header.component.c
 
 @Component({
   selector: 'app-offer',
-  imports: [HeaderComponentComponent,],
+  imports: [HeaderComponentComponent],
   templateUrl: './offer.component.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OfferComponentComponent {}

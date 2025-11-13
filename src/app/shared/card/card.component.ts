@@ -4,9 +4,9 @@ import { CapitalizePipe } from '../pipes/capitilize.pipe';
 
 @Component({
   selector: 'app-card',
-  imports: [CapitalizePipe,],
+  imports: [CapitalizePipe],
   templateUrl: './card.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
   @Input({ required: true }) offer!: OfferPreview;

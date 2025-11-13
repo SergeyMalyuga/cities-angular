@@ -5,7 +5,7 @@ import { User } from '../models/user';
 import { APIRoute, BASE_URL } from '../constants/const';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private http: HttpClient = inject(HttpClient);
@@ -17,7 +17,7 @@ export class UserService {
   public login(email: string, password: string): Observable<User> {
     return this.http.post<User>(`${BASE_URL}/${APIRoute.LOGIN}`, {
       email,
-      password
+      password,
     });
   }
 

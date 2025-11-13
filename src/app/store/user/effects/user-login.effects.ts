@@ -1,11 +1,11 @@
-import {inject, Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
-import {UserService} from '../../../core/services/user.service';
+import { inject, Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { UserService } from '../../../core/services/user.service';
 import * as UserActions from '../actions/user.actions';
-import {catchError, map, of, switchMap} from 'rxjs';
-import {User} from '../../../core/models/user';
-import {AuthService} from '../../../core/services/auth.service';
-import {HttpErrorResponse} from '@angular/common/http';
+import { catchError, map, of, switchMap } from 'rxjs';
+import { User } from '../../../core/models/user';
+import { AuthService } from '../../../core/services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class UserLoginEffects {
@@ -16,16 +16,18 @@ export class UserLoginEffects {
   login$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.login),
-      switchMap(({email, password}) =>
+      switchMap(({ email, password }) =>
         this.userService.login(email, password).pipe(
           map((user: User) => {
             this.authService.setToken(user.token);
-            return UserActions.loginSuccess({user});
+            return UserActions.loginSuccess({ user });
           }),
-          catchError((err: HttpErrorResponse) => of(UserActions.loginFailure({error: this.getErrorMessage(err)})))
-        )
-      )
-    )
+          catchError((err: HttpErrorResponse) =>
+            of(UserActions.loginFailure({ error: this.getErrorMessage(err) })),
+          ),
+        ),
+      ),
+    ),
   );
 
   private getErrorMessage(error: HttpErrorResponse): string {

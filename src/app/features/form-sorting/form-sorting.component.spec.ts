@@ -8,7 +8,7 @@ describe('FormSortingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormSortingComponent,]
+      imports: [FormSortingComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FormSortingComponent);

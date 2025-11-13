@@ -4,12 +4,12 @@ import {
   HostBinding,
   HostListener,
   Input,
-  Output
+  Output,
 } from '@angular/core';
 import { SortType } from '../../../core/constants/const';
 
 @Directive({
-  selector: '[appSelectSortType]'
+  selector: '[appSelectSortType]',
 })
 export class SelectSortTypeDirective {
   @Input({ required: true }) sortType!: SortType;

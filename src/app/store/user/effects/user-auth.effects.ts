@@ -16,9 +16,9 @@ export class UserAuthEffects {
       switchMap(() =>
         this.userService.getUser().pipe(
           map((user: User) => UserActions.checkAuthStatusSuccess({ user })),
-          catchError(() => of(UserActions.checkAuthStatusFailure()))
-        )
-      )
-    )
+          catchError(() => of(UserActions.checkAuthStatusFailure())),
+        ),
+      ),
+    ),
   );
 }

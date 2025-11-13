@@ -4,7 +4,7 @@ import {
   inject,
   OnInit,
   signal,
-  WritableSignal
+  WritableSignal,
 } from '@angular/core';
 import { HeaderComponentComponent } from '../../shared/header/header.component.component';
 import { Store } from '@ngrx/store';
@@ -34,7 +34,7 @@ import { OfferSortPipe } from './pipes/offer-sort.pipe';
     OfferSortPipe,
   ],
   templateUrl: './main.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainComponent implements OnInit {
   private store: Store<AppState> = inject(Store<AppState>);
@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
   public offers: WritableSignal<OfferPreview[]> = signal<OfferPreview[]>([]);
   public currentCity: WritableSignal<City> = signal<City>(DEFAULT_CITY);
   public currentSortType: WritableSignal<SortType> = signal<SortType>(
-    SortType.POPULAR
+    SortType.POPULAR,
   );
   public readonly CityName = CityName;
 

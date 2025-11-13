@@ -7,9 +7,9 @@ import { checkAuthStatus } from './store/user/actions/user.actions';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
   private store: Store<AppState> = inject(Store<AppState>);

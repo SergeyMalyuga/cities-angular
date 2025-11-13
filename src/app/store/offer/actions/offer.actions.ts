@@ -6,8 +6,8 @@ export const loadOffersSuccess = createAction(
   '[App Component] Load Offer Success]',
   props<{
     offers: OfferPreview[];
-  }>()
+  }>(),
 );
 export const loadOffersFailure = createAction(
-  '[App Component] Load Offer Failure]'
+  '[App Component] Load Offer Failure]',
 );

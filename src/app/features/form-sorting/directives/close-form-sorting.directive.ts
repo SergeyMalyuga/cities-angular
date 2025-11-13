@@ -3,11 +3,11 @@ import {
   EventEmitter,
   HostListener,
   Input,
-  Output
+  Output,
 } from '@angular/core';
 
 @Directive({
-  selector: '[appCloseFormSorting]'
+  selector: '[appCloseFormSorting]',
 })
 export class CloseFormSortingDirective {
   @Input({ required: true }) isSortFormOpen!: boolean;

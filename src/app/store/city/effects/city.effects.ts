@@ -12,8 +12,8 @@ export class CityEffects {
       ofType(actions.changeCity),
       map((action) => actions.changeCitySuccess({ city: action.city })),
       catchError(() =>
-        of(actions.changeCityFailure({ error: 'Ошибка при изменении города' }))
-      )
-    )
+        of(actions.changeCityFailure({ error: 'Ошибка при изменении города' })),
+      ),
+    ),
   );
 }

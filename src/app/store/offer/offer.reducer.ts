@@ -5,27 +5,27 @@ import { createReducer, on } from '@ngrx/store';
 import {
   loadOffers,
   loadOffersFailure,
-  loadOffersSuccess
+  loadOffersSuccess,
 } from './actions/offer.actions';
 
 export const offerAdapter: EntityAdapter<OfferPreview> =
   createEntityAdapter<OfferPreview>();
 const initialState: OffersState = offerAdapter.getInitialState({
   isLoading: false,
-  error: null
+  error: null,
 });
 
 export const offerReducer = createReducer(
   initialState,
   on(loadOffers, (state) => ({
     ...state,
-    isLoading: true
+    isLoading: true,
   })),
   on(loadOffersSuccess, (state, { offers }) =>
-    offerAdapter.setAll(offers, { ...state, isLoading: false })
+    offerAdapter.setAll(offers, { ...state, isLoading: false }),
   ),
   on(loadOffersFailure, (state) => ({
     ...state,
-    isLoading: false
-  }))
+    isLoading: false,
+  })),
 );

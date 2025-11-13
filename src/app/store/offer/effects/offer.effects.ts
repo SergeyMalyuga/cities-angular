@@ -16,11 +16,11 @@ export class OfferEffects {
       switchMap(() =>
         this.offerService.getOffers().pipe(
           map((offers: OfferPreview[]) =>
-            actions.loadOffersSuccess({ offers })
+            actions.loadOffersSuccess({ offers }),
           ),
-          catchError(() => of(actions.loadOffersFailure()))
-        )
-      )
-    )
+          catchError(() => of(actions.loadOffersFailure())),
+        ),
+      ),
+    ),
   );
 }

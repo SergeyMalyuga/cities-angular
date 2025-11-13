@@ -7,5 +7,5 @@ import { userReducer } from '../user/user.reducer';
 export const appReducer: ActionReducerMap<AppState> = {
   offers: offerReducer,
   city: cityReducer,
-  user: userReducer
+  user: userReducer,
 };
