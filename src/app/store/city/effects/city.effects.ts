@@ -1,7 +1,7 @@
-import {inject, Injectable} from '@angular/core';
-import {Actions, createEffect, ofType} from '@ngrx/effects';
+import { inject, Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as actions from '../actions/city.actions';
-import {catchError, map, of} from 'rxjs';
+import { catchError, map, of } from 'rxjs';
 
 @Injectable()
 export class CityEffects {

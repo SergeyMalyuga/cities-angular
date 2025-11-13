@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {FormSortingComponent} from './form-sorting.component';
+import { FormSortingComponent } from './form-sorting.component';
 
 describe('FormSortingComponent', () => {
   let component: FormSortingComponent;

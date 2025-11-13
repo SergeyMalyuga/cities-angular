@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {HeaderComponentComponent} from '../../shared/header/header.component.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { HeaderComponentComponent } from '../../shared/header/header.component.component';
 
 @Component({
   selector: 'app-favorites',

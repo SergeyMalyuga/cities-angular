@@ -2,12 +2,22 @@ import {createAction, props} from '@ngrx/store';
 import {User} from '../../../core/models/user';
 
 export const checkAuthStatus = createAction(
-  '[App component] Check Auth Status]'
+  '[App Component] Check Auth Status]'
 );
 export const checkAuthStatusSuccess = createAction(
-  '[App component] Check Auth Status Success]',
+  '[App Component] Check Auth Status Success]',
   props<{ user: User }>()
 );
 export const checkAuthStatusFailure = createAction(
-  '[App component] Check Auth Status Failure]'
+  '[App Component] Check Auth Status Failure]'
 );
+export const login = createAction(
+  '[Login Component] Login',
+  props<{ email: string; password: string }>()
+);
+export const loginSuccess = createAction(
+  '[Login Component] Login Success',
+  props<{ user: User }>()
+);
+export const loginFailure = createAction('[Login Component] Login Failure',
+  props<{ error: string }>());
