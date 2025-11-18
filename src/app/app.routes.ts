@@ -13,8 +13,8 @@ export const routes: Routes = [
     path: `${AppRoute.OFFER}/:id`,
     title: 'Offer',
     loadComponent: () =>
-      import('./pages/offer/offer.component.component').then(
-        (m) => m.OfferComponentComponent,
+      import('./pages/offer/offer.component').then(
+        (m) => m.OfferComponent,
       ),
   },
   {
