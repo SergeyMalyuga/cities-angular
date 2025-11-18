@@ -1,28 +1,18 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
-import { AppRoute, AuthorizationStatus } from '../../core/constants/const';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../core/models/app.state';
-import { login } from '../../store/user/actions/user.actions';
-import { selectAuthStatus } from '../../store/app/selectors/app.selectors';
-import { filter, Subject, take, takeUntil } from 'rxjs';
-import { loadOffers } from '../../store/offer/actions/offer.actions';
+import {ChangeDetectionStrategy, Component, inject, OnDestroy,} from '@angular/core';
+import {Router, RouterLink} from '@angular/router';
+import {AppRoute, AuthorizationStatus} from '../../core/constants/const';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../core/models/app.state';
+import {login} from '../../store/user/actions/user.actions';
+import {selectAuthStatus} from '../../store/app/selectors/app.selectors';
+import {filter, Subject, take, takeUntil} from 'rxjs';
+import {loadOffers} from '../../store/offer/actions/offer.actions';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, ReactiveFormsModule],
 })

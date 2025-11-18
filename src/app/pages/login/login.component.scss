@@ -1,0 +1,17 @@
+
+.login {
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__error {
+    position: absolute;
+    display: block;
+    bottom: 3px;
+    left: 0;
+    right: 0;
+    background-color: orange;
+    color: red;
+    text-align: center;
+  }
+}
