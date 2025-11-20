@@ -8,10 +8,11 @@ import {forkJoin, of, switchMap} from 'rxjs';
 import {CapitalizePipe} from '../../shared/pipes/capitilize.pipe';
 import {Comment} from '../../core/models/comments';
 import {CommentService} from '../../core/services/comment.service';
+import {CommentComponent} from '../../features/comment/comment.component';
 
 @Component({
   selector: 'app-offer',
-  imports: [HeaderComponent, CapitalizePipe],
+  imports: [HeaderComponent, CapitalizePipe, CommentComponent],
   templateUrl: './offer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

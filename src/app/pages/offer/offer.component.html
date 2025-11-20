@@ -87,6 +87,11 @@
               Reviews &middot; <span class="reviews__amount">{{commentsAmount()}}</span>
             </h2>
             <ul class="reviews__list">
+              @for (comment of comments(); track comment.id) {
+                <app-comment [comment]="comment"/>
+              }
+
+<!--
               <li class="reviews__item">
                 <div class="reviews__user user">
                   <div class="reviews__avatar-wrapper user__avatar-wrapper">
@@ -118,6 +123,7 @@
                   >
                 </div>
               </li>
+-->
             </ul>
             <form class="reviews__form form" action="#" method="post">
               <label class="reviews__label form__label" for="review"
