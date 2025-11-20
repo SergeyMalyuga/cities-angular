@@ -3,7 +3,7 @@ import {HeaderComponent} from '../../shared/header/header.component';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/models/app.state';
 import {OfferPreview} from '../../core/models/offers';
-import {selectOffers} from '../../store/app/selectors/app.selectors';
+import {selectCity, selectOffers} from '../../store/app/selectors/app.selectors';
 import {Subject, takeUntil} from 'rxjs';
 import {CardComponent} from '../../shared/card/card.component';
 import {City} from '../../core/models/city';
@@ -44,11 +44,13 @@ export class MainComponent implements OnInit {
       .select(selectOffers)
       .pipe(takeUntil(this.destroySubject))
       .subscribe((offers: OfferPreview[]) => this.offers.set(offers));
+
+    this.store.select(selectCity).pipe(takeUntil(this.destroySubject)).subscribe(city => this.currentCity.set(city));
   }
 
   public onCityChanged(city: City): void {
     this.currentCity.set(city);
-    this.store.dispatch(changeCity({ city }));
+    this.store.dispatch(changeCity({city}));
   }
 
   public onSortTypeChanged(sortType: SortType): void {
