@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, signal,} from '@angular/core';
 import {HeaderComponent} from '../../shared/header/header.component';
 import {ActivatedRoute} from '@angular/router';
-import {Offer} from '../../core/models/offers';
+import {Offer, OfferPreview} from '../../core/models/offers';
 import {OfferService} from '../../core/services/offer.service';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {catchError, forkJoin, of, switchMap} from 'rxjs';
@@ -15,15 +15,18 @@ import {selectAuthStatus} from '../../store/app/selectors/app.selectors';
 import {AuthorizationStatus} from '../../core/constants/const';
 import {CommentFormComponent} from '../../features/comment-form/comment-form.component';
 import {SortCommentsByDatePipe} from './pipes/sort-comments-by-date.pipe';
+import {CardComponent} from '../../shared/card/card.component';
+import {FirstThreePipe} from './pipes/first-three.pipe';
 
 @Component({
   selector: 'app-offer',
-  imports: [HeaderComponent, CapitalizePipe, CommentComponent, CommentFormComponent, SortCommentsByDatePipe],
+  imports: [HeaderComponent, CapitalizePipe, CommentComponent, CommentFormComponent, SortCommentsByDatePipe, CardComponent, FirstThreePipe],
   templateUrl: './offer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OfferComponent implements OnInit {
   public offer = signal<Offer | null>(null);
+  public nearbyOffers = signal<OfferPreview[]>([]);
   public offerId = signal<string | null>(null);
   public comments = signal<Comment[]>([]);
   public commentsAmount = computed(() => this.comments().length);
@@ -49,6 +52,7 @@ export class OfferComponent implements OnInit {
           return forkJoin({
             offer: this.offerService.getOfferById(id),
             comments: this.commentService.getComments(id),
+            nearbyOffers: this.offerService.getNearbyOffers(id),
           }).pipe(
             catchError((err) => {
               console.log(err);
@@ -61,6 +65,7 @@ export class OfferComponent implements OnInit {
         if (result) {
           this.offer.set(result.offer);
           this.comments.set(result.comments);
+          this.nearbyOffers.set(result.nearbyOffers);
         }
       });
 
