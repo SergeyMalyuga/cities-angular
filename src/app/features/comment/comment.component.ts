@@ -5,13 +5,10 @@ import {FullDatePipe} from './pipes/full-date.pipe';
 
 @Component({
   selector: 'app-comment',
-  imports: [
-    MonthYearPipe,
-    FullDatePipe
-  ],
+  imports: [MonthYearPipe, FullDatePipe],
   templateUrl: './comment.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CommentComponent {
-  @Input({required: true}) comment!: Comment;
+  @Input({ required: true }) comment!: Comment;
 }

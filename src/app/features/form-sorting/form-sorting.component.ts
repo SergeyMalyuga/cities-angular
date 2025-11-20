@@ -1,16 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  signal,
-  WritableSignal,
-} from '@angular/core';
-import { ToggleFormSortDirective } from './directives/toggle-form-sorting.directive';
-import { CloseFormSortingDirective } from './directives/close-form-sorting.directive';
-import { SortType } from '../../core/constants/const';
-import { SelectSortTypeDirective } from './directives/select-sort-type.directive';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, signal, WritableSignal,} from '@angular/core';
+import {ToggleFormSortDirective} from './directives/toggle-form-sorting.directive';
+import {CloseFormSortingDirective} from './directives/close-form-sorting.directive';
+import {SortType} from '../../core/constants/const';
+import {SelectSortTypeDirective} from './directives/select-sort-type.directive';
 
 @Component({
   selector: 'app-form-sorting',

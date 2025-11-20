@@ -1,9 +1,9 @@
-import { inject, Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { UserService } from '../../../core/services/user.service';
+import {inject, Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {UserService} from '../../../core/services/user.service';
 import * as UserActions from '../actions/user.actions';
-import { catchError, map, of, switchMap } from 'rxjs';
-import { User } from '../../../core/models/user';
+import {catchError, map, of, switchMap} from 'rxjs';
+import {User} from '../../../core/models/user';
 
 @Injectable()
 export class UserAuthEffects {

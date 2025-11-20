@@ -39,11 +39,14 @@
               placeholder="Email"
               required=""
             />
-            @if (loginGroup.get('email')?.touched && loginGroup.get('email')?.invalid) {
-              @if (loginGroup.get('email')?.errors?.['required']) {
+            @if (
+              loginGroup.get("email")?.touched &&
+              loginGroup.get("email")?.invalid
+            ) {
+              @if (loginGroup.get("email")?.errors?.["required"]) {
                 <div class="login__error">Email обязателен</div>
               }
-              @if (loginGroup.get('email')?.errors?.['email']) {
+              @if (loginGroup.get("email")?.errors?.["email"]) {
                 <div class="login__error">Некорректный email</div>
               }
             }
@@ -59,11 +62,14 @@
               placeholder="Password"
               required=""
             />
-            @if (loginGroup.get('password')?.touched && loginGroup.get('password')?.invalid) {
-              @if (loginGroup.get('password')?.errors?.['required']) {
+            @if (
+              loginGroup.get("password")?.touched &&
+              loginGroup.get("password")?.invalid
+            ) {
+              @if (loginGroup.get("password")?.errors?.["required"]) {
                 <div class="login__error">Пароль обязателен</div>
               }
-              @if (loginGroup.get('password')?.errors?.['pattern']) {
+              @if (loginGroup.get("password")?.errors?.["pattern"]) {
                 <div class="login__error">Некорректный пароль</div>
               }
             }

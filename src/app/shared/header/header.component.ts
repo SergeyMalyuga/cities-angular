@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal,} from '@angular/core';
-import {AppRoute, AuthorizationStatus, DEFAULT_USER} from '../../core/constants/const';
+import {AppRoute, AuthorizationStatus, DEFAULT_USER,} from '../../core/constants/const';
 import {RouterLink} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/models/app.state';
-import {selectAuthStatus, selectUser} from '../../store/app/selectors/app.selectors';
+import {selectAuthStatus, selectUser,} from '../../store/app/selectors/app.selectors';
 import {Subject, takeUntil} from 'rxjs';
 import {SignOutDirective} from './directives/sign-out.directive';
 import {logout} from '../../store/user/actions/user.actions';
@@ -30,7 +30,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((authStatus: AuthorizationStatus) =>
         this.authStatus.set(authStatus),
       );
-    this.store.select(selectUser).pipe(takeUntil(this.destroySubject))
+    this.store
+      .select(selectUser)
+      .pipe(takeUntil(this.destroySubject))
       .subscribe((user: User | undefined) => this.user.set(user));
   }
 

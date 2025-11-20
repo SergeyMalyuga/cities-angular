@@ -1,15 +1,8 @@
-import { UserState } from '../../core/models/user.state';
-import { AuthorizationStatus, DEFAULT_USER } from '../../core/constants/const';
-import { createReducer, on } from '@ngrx/store';
+import {UserState} from '../../core/models/user.state';
+import {AuthorizationStatus, DEFAULT_USER} from '../../core/constants/const';
+import {createReducer, on} from '@ngrx/store';
 import * as UserActions from './actions/user.actions';
-import {
-  login,
-  loginFailure,
-  loginSuccess,
-  logout,
-  logoutFailure,
-  logoutSuccess,
-} from './actions/user.actions';
+import {login, loginFailure, loginSuccess, logout, logoutFailure, logoutSuccess} from './actions/user.actions';
 
 const initialState: UserState = {
   authorizationStatus: AuthorizationStatus.UNKNOWN,

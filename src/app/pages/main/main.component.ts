@@ -1,26 +1,19 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-  signal,
-  WritableSignal,
-} from '@angular/core';
-import { HeaderComponent } from '../../shared/header/header.component';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../core/models/app.state';
-import { OfferPreview } from '../../core/models/offers';
-import { selectOffers } from '../../store/app/selectors/app.selectors';
-import { Subject, takeUntil } from 'rxjs';
-import { CardComponent } from '../../shared/card/card.component';
-import { City } from '../../core/models/city';
-import { CityName, DEFAULT_CITY, SortType } from '../../core/constants/const';
-import { OffersByCityPipe } from './pipes/offers-by-city.pipe';
-import { ChangeCityDirective } from './directives/change-city.directive';
-import { CityByNamePipe } from './pipes/city-by-name.pipe';
-import { changeCity } from '../../store/city/actions/city.actions';
-import { FormSortingComponent } from '../../features/form-sorting/form-sorting.component';
-import { OfferSortPipe } from './pipes/offer-sort.pipe';
+import {ChangeDetectionStrategy, Component, inject, OnInit, signal, WritableSignal,} from '@angular/core';
+import {HeaderComponent} from '../../shared/header/header.component';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../core/models/app.state';
+import {OfferPreview} from '../../core/models/offers';
+import {selectOffers} from '../../store/app/selectors/app.selectors';
+import {Subject, takeUntil} from 'rxjs';
+import {CardComponent} from '../../shared/card/card.component';
+import {City} from '../../core/models/city';
+import {CityName, DEFAULT_CITY, SortType} from '../../core/constants/const';
+import {OffersByCityPipe} from './pipes/offers-by-city.pipe';
+import {ChangeCityDirective} from './directives/change-city.directive';
+import {CityByNamePipe} from './pipes/city-by-name.pipe';
+import {changeCity} from '../../store/city/actions/city.actions';
+import {FormSortingComponent} from '../../features/form-sorting/form-sorting.component';
+import {OfferSortPipe} from './pipes/offer-sort.pipe';
 
 @Component({
   selector: 'app-main',
