@@ -12,15 +12,16 @@ import {CommentComponent} from '../../features/comment/comment.component';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/models/app.state';
 import {selectAuthStatus} from '../../store/app/selectors/app.selectors';
-import {AuthorizationStatus} from '../../core/constants/const';
+import {AuthorizationStatus, FavoriteClass} from '../../core/constants/const';
 import {CommentFormComponent} from '../../features/comment-form/comment-form.component';
 import {SortCommentsByDatePipe} from './pipes/sort-comments-by-date.pipe';
 import {CardComponent} from '../../shared/card/card.component';
 import {FirstThreePipe} from './pipes/first-three.pipe';
+import {ToggleFavoriteDirective} from '../../shared/directives/toggle-favorite.directive';
 
 @Component({
   selector: 'app-offer',
-  imports: [HeaderComponent, CapitalizePipe, CommentComponent, CommentFormComponent, SortCommentsByDatePipe, CardComponent, FirstThreePipe],
+  imports: [HeaderComponent, CapitalizePipe, CommentComponent, CommentFormComponent, SortCommentsByDatePipe, CardComponent, FirstThreePipe, ToggleFavoriteDirective],
   templateUrl: './offer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -84,4 +85,6 @@ export class OfferComponent implements OnInit {
       return comments;
     })
   }
+
+  protected readonly FavoriteClass = FavoriteClass;
 }

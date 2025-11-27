@@ -104,6 +104,11 @@ export const sortTypeKeys = {
   [SortType.TOP_RATED_FIRST]: 'TOP_RATED_FIRST',
 };
 
+export const FavoriteClass = {
+  OFFER: 'offer__bookmark-button--active',
+  PLACE_CARD: 'place-card__bookmark-button--active',
+} as const;
+
 export const QUANTITY_FIRST_OFFERS = 3;
 
 export const DEFAULT_USER = undefined;

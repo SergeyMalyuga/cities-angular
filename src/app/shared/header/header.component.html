@@ -37,7 +37,7 @@
               [routerLink]="
                 authStatus() === AuthorizationStatus.AUTH
                   ? null
-                  : [AppRoute.LOGIN]
+                  : ['/', AppRoute.LOGIN]
               "
             >
               <span class="header__signout">{{
