@@ -12,8 +12,8 @@ import {ToggleFavoriteDirective} from '../directives/toggle-favorite.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
-  @Input({ required: true }) offer!: OfferPreview;
+  @Input({required: true}) offer!: OfferPreview;
   public readonly Math = Math;
-  protected readonly AppRoute = AppRoute;
-  protected readonly FavoriteClass = FavoriteClass;
+  public readonly AppRoute = AppRoute;
+  public readonly FavoriteClass = FavoriteClass;
 }
