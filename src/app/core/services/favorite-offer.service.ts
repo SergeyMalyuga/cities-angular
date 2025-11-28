@@ -9,7 +9,7 @@ import {APIRoute, BASE_URL} from '../constants/const';
     providedIn: 'root',
   }
 )
-export class FavoriteService {
+export class FavoriteOfferService {
   private http = inject(HttpClient);
 
   public getFavorites(): Observable<OfferPreview[]> {
