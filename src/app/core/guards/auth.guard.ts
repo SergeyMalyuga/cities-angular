@@ -24,8 +24,6 @@ export class AuthGuard implements CanActivate {
         if (status === AuthorizationStatus.AUTH) {
           return true;
         } else {
-          console.log(route.url); //Todo delete
-          console.log(state.url);
           return this.router.createUrlTree([AppRoute.LOGIN], {
             queryParams: { redirectTo: state.url },
           });

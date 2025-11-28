@@ -17,6 +17,7 @@ export interface Offer {
   goods: string[];
   host: Host;
   images: string[];
+  "previewImage": string,
   maxAdults: number;
   reviews: string[];
 }
