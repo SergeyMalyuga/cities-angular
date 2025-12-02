@@ -13,5 +13,6 @@ export class ToggleFavoriteDirective {
   onToggleBtnClick() {
     const target = this.elementRef.nativeElement as HTMLElement;
       target.classList.toggle(this.bookmarkConfig.activeClass);
+      this.favoriteToggled.emit();
   }
 }

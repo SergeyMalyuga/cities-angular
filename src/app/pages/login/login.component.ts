@@ -10,6 +10,7 @@ import {filter, Subject, take, takeUntil} from 'rxjs';
 import {loadOffers} from '../../store/offer/actions/offer.actions';
 import {City} from '../../core/models/city';
 import {changeCity} from '../../store/city/actions/city.actions';
+import {loadFavoriteOffers} from '../../store/favorite-offer/actions/favorite-offer.actions';
 
 @Component({
   selector: 'app-login',
@@ -49,6 +50,7 @@ export class LoginComponent implements OnDestroy {
           )
           .subscribe(() => {
             this.store.dispatch(loadOffers());
+            this.store.dispatch(loadFavoriteOffers());
             this.loginGroup.reset();
             this.router.navigate([AppRoute.MAIN]);
           });

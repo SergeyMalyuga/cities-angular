@@ -99,7 +99,7 @@
                 | offerSort: currentSortType();
               track offer.id
             ) {
-              <app-card [offer]="offer" />
+              <app-card [offer]="offer" [authStatus]="authStatus()"/>
             }
           </div>
         </section>
