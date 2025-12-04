@@ -18,6 +18,7 @@ import {SortCommentsByDatePipe} from './pipes/sort-comments-by-date.pipe';
 import {CardComponent} from '../../shared/card/card.component';
 import {FirstThreePipe} from './pipes/first-three.pipe';
 import {ToggleFavoriteDirective} from '../../shared/directives/toggle-favorite.directive';
+import {changeFavoriteOfferStatus} from '../../store/favorite-offer/actions/favorite-offer.actions';
 
 @Component({
   selector: 'app-offer',
@@ -34,6 +35,7 @@ export class OfferComponent implements OnInit {
   public authStatus = signal<AuthorizationStatus>(AuthorizationStatus.UN_AUTH);
   public readonly Math = Math;
   public readonly AuthorizationStatus = AuthorizationStatus;
+  public readonly FavoriteClass = FavoriteClass;
   private offerService = inject(OfferService);
   private commentService = inject(CommentService);
   private store = inject(Store<AppState>);
@@ -86,5 +88,11 @@ export class OfferComponent implements OnInit {
     })
   }
 
-  protected readonly FavoriteClass = FavoriteClass;
+  public onFavoriteOfferToggled() {
+    const id = this.offerId();
+    const offer = this.offer();
+    if(id && offer) {
+      this.store.dispatch(changeFavoriteOfferStatus({offerId: id, status: Number(!offer.isFavorite)}));
+    }
+  }
 }
