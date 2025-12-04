@@ -40,3 +40,8 @@ export const selectFavoriteOffers = createSelector(
   selectFavoriteOfferState,
   favoriteOfferSelectors.selectAll
 );
+
+export const selectIsFavoriteOfferLoading = createSelector(
+  selectFavoriteOfferState,
+  (state: FavoriteOffersState) => state.isLoading
+);
