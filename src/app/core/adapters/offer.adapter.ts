@@ -11,6 +11,6 @@ export function adaptOfferToPreview(offer: Offer): OfferPreview {
     isFavorite: offer.isFavorite,
     isPremium: offer.isPremium,
     rating: offer.rating,
-    previewImage: offer.previewImage
+    previewImage: offer.previewImage,
   };
 }

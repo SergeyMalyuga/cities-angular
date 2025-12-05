@@ -86,7 +86,7 @@
           <h2 class="visually-hidden">Places</h2>
           <b class="places__found"
             >{{ (offers() | offersByCity: currentCity()).length }} places to
-            stay in {{currentCity().name}}</b
+            stay in {{ currentCity().name }}</b
           >
           <app-form-sorting
             [currentSortType]="currentSortType()"
@@ -99,7 +99,7 @@
                 | offerSort: currentSortType();
               track offer.id
             ) {
-              <app-card [offer]="offer" [authStatus]="authStatus()"/>
+              <app-card [offer]="offer" [authStatus]="authStatus()" />
             }
           </div>
         </section>

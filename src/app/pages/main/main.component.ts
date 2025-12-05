@@ -3,11 +3,11 @@ import {HeaderComponent} from '../../shared/header/header.component';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/models/app.state';
 import {OfferPreview} from '../../core/models/offers';
-import {selectAuthStatus, selectCity, selectOffers} from '../../store/app/selectors/app.selectors';
+import {selectAuthStatus, selectCity, selectOffers,} from '../../store/app/selectors/app.selectors';
 import {Subject, takeUntil} from 'rxjs';
 import {CardComponent} from '../../shared/card/card.component';
 import {City} from '../../core/models/city';
-import {AuthorizationStatus, CityName, DEFAULT_CITY, SortType} from '../../core/constants/const';
+import {AuthorizationStatus, CityName, DEFAULT_CITY, SortType,} from '../../core/constants/const';
 import {OffersByCityPipe} from './pipes/offers-by-city.pipe';
 import {ChangeCityDirective} from './directives/change-city.directive';
 import {CityByNamePipe} from './pipes/city-by-name.pipe';
@@ -46,13 +46,19 @@ export class MainComponent implements OnInit {
       .pipe(takeUntil(this.destroySubject))
       .subscribe((offers: OfferPreview[]) => this.offers.set(offers));
 
-    this.store.select(selectCity).pipe(takeUntil(this.destroySubject)).subscribe(city => this.currentCity.set(city));
-    this.store.select(selectAuthStatus).pipe(takeUntil(this.destroySubject)).subscribe(authStatus => this.authStatus.set(authStatus));
+    this.store
+      .select(selectCity)
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((city) => this.currentCity.set(city));
+    this.store
+      .select(selectAuthStatus)
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((authStatus) => this.authStatus.set(authStatus));
   }
 
   public onCityChanged(city: City): void {
     this.currentCity.set(city);
-    this.store.dispatch(changeCity({city}));
+    this.store.dispatch(changeCity({ city }));
   }
 
   public onSortTypeChanged(sortType: SortType): void {

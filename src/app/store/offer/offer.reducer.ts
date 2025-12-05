@@ -25,7 +25,13 @@ export const offerReducer = createReducer(
     ...state,
     isLoading: false,
   })),
-  on(changeFavoriteOfferStatusSuccess, (state, {favoriteOffer}) =>
-    offerAdapter.updateOne({id: favoriteOffer.id, changes: {isFavorite: favoriteOffer.isFavorite}}, state)
-  )
+  on(changeFavoriteOfferStatusSuccess, (state, { favoriteOffer }) =>
+    offerAdapter.updateOne(
+      {
+        id: favoriteOffer.id,
+        changes: { isFavorite: favoriteOffer.isFavorite },
+      },
+      state,
+    ),
+  ),
 );

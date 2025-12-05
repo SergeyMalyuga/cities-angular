@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, inject, OnDestroy, Output, signal,} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import {AppRoute, AuthorizationStatus, CITY_LOCATIONS} from '../../core/constants/const';
+import {AppRoute, AuthorizationStatus, CITY_LOCATIONS,} from '../../core/constants/const';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/models/app.state';
@@ -69,7 +69,7 @@ export class LoginComponent implements OnDestroy {
 
   public onCityChange(evt: MouseEvent) {
     evt.preventDefault();
-    this.store.dispatch(changeCity({city: this.randomLocation()}));
+    this.store.dispatch(changeCity({ city: this.randomLocation() }));
     this.router.navigate([AppRoute.MAIN]);
   }
 }

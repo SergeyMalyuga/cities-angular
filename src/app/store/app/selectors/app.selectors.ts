@@ -9,7 +9,8 @@ import {FavoriteOffersState} from '../../../core/models/favorite-offers.state';
 const selectOfferState = createFeatureSelector<AppState['offers']>('offers');
 const offerSelectors = offerAdapter.getSelectors();
 
-const selectFavoriteOfferState = createFeatureSelector<AppState['favoriteOffers']>('favoriteOffers');
+const selectFavoriteOfferState =
+  createFeatureSelector<AppState['favoriteOffers']>('favoriteOffers');
 const favoriteOfferSelectors = favoriteOfferAdapter.getSelectors();
 
 const selectUserState = createFeatureSelector<AppState['user']>('user');
@@ -33,15 +34,20 @@ export const selectUser = createSelector(
 
 export const selectCity = createSelector(
   selectCityState,
-  (state: City) => state
+  (state: City) => state,
 );
 
 export const selectFavoriteOffers = createSelector(
   selectFavoriteOfferState,
-  favoriteOfferSelectors.selectAll
+  favoriteOfferSelectors.selectAll,
 );
 
 export const selectIsFavoriteOfferLoading = createSelector(
   selectFavoriteOfferState,
-  (state: FavoriteOffersState) => state.isLoading
+  (state: FavoriteOffersState) => state.isLoading,
+);
+
+export const selectIsOfferFavorite = createSelector(
+  selectFavoriteOfferState,
+  (state: FavoriteOffersState) => state.entities,
 );

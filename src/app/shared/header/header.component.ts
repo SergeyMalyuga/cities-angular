@@ -37,7 +37,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .select(selectUser)
       .pipe(takeUntil(this.destroySubject))
       .subscribe((user: User | undefined) => this.user.set(user));
-    this.store.select(selectFavoriteOffers).pipe(takeUntil(this.destroySubject)).subscribe(favoriteOffers => this.favoriteOffers.set(favoriteOffers));
+    this.store
+      .select(selectFavoriteOffers)
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe((favoriteOffers) => this.favoriteOffers.set(favoriteOffers));
   }
 
   ngOnDestroy(): void {

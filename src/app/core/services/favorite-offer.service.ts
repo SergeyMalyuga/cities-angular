@@ -4,11 +4,9 @@ import {Observable} from 'rxjs';
 import {Offer, OfferPreview} from '../models/offers';
 import {APIRoute, BASE_URL} from '../constants/const';
 
-@Injectable(
-  {
-    providedIn: 'root',
-  }
-)
+@Injectable({
+  providedIn: 'root',
+})
 export class FavoriteOfferService {
   private http = inject(HttpClient);
 
@@ -16,7 +14,13 @@ export class FavoriteOfferService {
     return this.http.get<OfferPreview[]>(`${BASE_URL}/${APIRoute.FAVORITE}`);
   }
 
-  public changeFavoriteStatus(offerId: string, status: number): Observable<Offer> {
-    return this.http.post<Offer>(`${BASE_URL}/${APIRoute.FAVORITE}/${offerId}/${status}`, {offerId, status});
+  public changeFavoriteStatus(
+    offerId: string,
+    status: number,
+  ): Observable<Offer> {
+    return this.http.post<Offer>(
+      `${BASE_URL}/${APIRoute.FAVORITE}/${offerId}/${status}`,
+      { offerId, status },
+    );
   }
 }

@@ -11,7 +11,11 @@ import {CommentService} from '../../core/services/comment.service';
 import {CommentComponent} from '../../features/comment/comment.component';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/models/app.state';
-import {selectAuthStatus} from '../../store/app/selectors/app.selectors';
+import {
+  selectAuthStatus,
+  selectIsFavoriteOfferLoading,
+  selectIsOfferFavorite,
+} from '../../store/app/selectors/app.selectors';
 import {AuthorizationStatus, FavoriteClass} from '../../core/constants/const';
 import {CommentFormComponent} from '../../features/comment-form/comment-form.component';
 import {SortCommentsByDatePipe} from './pipes/sort-comments-by-date.pipe';
@@ -19,10 +23,21 @@ import {CardComponent} from '../../shared/card/card.component';
 import {FirstThreePipe} from './pipes/first-three.pipe';
 import {ToggleFavoriteDirective} from '../../shared/directives/toggle-favorite.directive';
 import {changeFavoriteOfferStatus} from '../../store/favorite-offer/actions/favorite-offer.actions';
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-offer',
-  imports: [HeaderComponent, CapitalizePipe, CommentComponent, CommentFormComponent, SortCommentsByDatePipe, CardComponent, FirstThreePipe, ToggleFavoriteDirective],
+  imports: [
+    HeaderComponent,
+    CapitalizePipe,
+    CommentComponent,
+    CommentFormComponent,
+    SortCommentsByDatePipe,
+    CardComponent,
+    FirstThreePipe,
+    ToggleFavoriteDirective,
+    AsyncPipe,
+  ],
   templateUrl: './offer.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -39,8 +54,12 @@ export class OfferComponent implements OnInit {
   private offerService = inject(OfferService);
   private commentService = inject(CommentService);
   private store = inject(Store<AppState>);
+  public isFavoriteOffersLoading$ = this.store.select(
+    selectIsFavoriteOfferLoading,
+  );
   private activatedRouter = inject(ActivatedRoute);
   private destroyRef = inject(DestroyRef);
+  private isFavorite = signal<boolean>(false);
 
   ngOnInit(): void {
     this.activatedRouter.paramMap
@@ -76,23 +95,38 @@ export class OfferComponent implements OnInit {
       .select(selectAuthStatus)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((status) => this.authStatus.set(status));
+
+    this.store
+      .select(selectIsOfferFavorite)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((entities) => {
+        const id = this.offerId();
+        if (id !== null && entities[id] !== undefined) {
+          this.isFavorite.set(entities[id].isFavorite);
+        } else {
+          this.isFavorite.set(false);
+        }
+      });
   }
 
-
   public onCommentAdded(comment: Comment): void {
-    this.comments.update(comments => {
+    this.comments.update((comments) => {
       if (comment) {
         return [comment, ...comments];
       }
       return comments;
-    })
+    });
   }
 
   public onFavoriteOfferToggled() {
     const id = this.offerId();
-    const offer = this.offer();
-    if(id && offer) {
-      this.store.dispatch(changeFavoriteOfferStatus({offerId: id, status: Number(!offer.isFavorite)}));
+    if (id) {
+      this.store.dispatch(
+        changeFavoriteOfferStatus({
+          offerId: id,
+          status: Number(!this.isFavorite()),
+        }),
+      );
     }
   }
 }

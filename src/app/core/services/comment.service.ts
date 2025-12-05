@@ -16,7 +16,14 @@ export class CommentService {
     );
   }
 
-  public postComment(offerId: string, rating: number, comment: string): Observable<Comment> {
-    return this.http.post<Comment>(`${BASE_URL}/${APIRoute.COMMENTS}/${offerId}`, {rating, comment});
+  public postComment(
+    offerId: string,
+    rating: number,
+    comment: string,
+  ): Observable<Comment> {
+    return this.http.post<Comment>(
+      `${BASE_URL}/${APIRoute.COMMENTS}/${offerId}`,
+      { rating, comment },
+    );
   }
 }
