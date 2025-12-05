@@ -1,0 +1,31 @@
+<div class="page">
+  <app-header />
+  <main class="page__main page__main--favorites">
+    <div class="page__favorites-container container">
+      <section class="favorites">
+        @if (offersAmount() > 0) {
+          <h1 class="favorites__title">Saved listing</h1>
+          <ul class="favorites__list">
+            @for (key of Object.keys(favoriteOffers()); track key) {
+              @if (isKeyOf(key)) {
+                <app-favorites-list-item [city]="key" [offers]="favoriteOffers()[key]" [authStatus]="authStatus()"/>
+              }
+            }
+          </ul>
+        }
+      </section>
+    </div>
+  </main>
+  <footer class="footer container">
+    <a class="footer__logo-link" href="main.html">
+      <img
+        class="footer__logo"
+        src="img/logo.svg"
+        alt="6 cities logo"
+        width="64"
+        height="33"
+      />
+    </a>
+  </footer>
+</div>
+

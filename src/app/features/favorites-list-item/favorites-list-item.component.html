@@ -1,0 +1,15 @@
+ <li class="favorites__locations-items">
+    <div class="favorites__locations locations locations--current">
+      <div class="locations__item">
+        <a class="locations__item-link" href="#">
+          <span>{{city | capitilize}}</span>
+        </a>
+      </div>
+    </div>
+    <div class="favorites__places">
+      @for (offer of offers; track offer.id) {
+        <app-card [offer]="offer" [authStatus]="authStatus"/>
+      }
+    </div>
+  </li>
+
