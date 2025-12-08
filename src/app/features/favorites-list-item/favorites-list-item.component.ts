@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {OfferPreview} from '../../core/models/offers';
 import {CardComponent} from '../../shared/card/card.component';
-import {AuthorizationStatus} from '../../core/constants/const';
+import {AppRoute, AuthorizationStatus} from '../../core/constants/const';
 import {CapitalizePipe} from '../../shared/pipes/capitilize.pipe';
 
 @Component({
@@ -17,4 +17,5 @@ export class FavoritesListItemComponent {
   @Input({required: true}) city!: string;
   @Input({required: true}) offers!: OfferPreview[];
   @Input({required: true}) authStatus!: AuthorizationStatus;
+  protected readonly AppRoute = AppRoute;
 }

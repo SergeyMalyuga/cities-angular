@@ -129,7 +129,7 @@
         <h2 class="near-places__title">Other places in the neighbourhood</h2>
         <div class="near-places__list places__list">
           @for (offer of nearbyOffers() | firstThree; track offer.id) {
-            <app-card [offer]="offer" [authStatus]="authStatus()" />
+            <app-card [offer]="offer"  [pageType]="AppRoute.OFFER" [authStatus]="authStatus()" />
           }
         </div>
       </section>

@@ -7,8 +7,8 @@
           <h1 class="favorites__title">Saved listing</h1>
           <ul class="favorites__list">
             @for (key of Object.keys(favoriteOffers()); track key) {
-              @if (isKeyOf(key)) {
-                <app-favorites-list-item [city]="key" [offers]="favoriteOffers()[key]" [authStatus]="authStatus()"/>
+              @if (isKeyOf(key) && favoriteOffers()[key].length > 0) {
+                <app-favorites-list-item class="favorites__locations-items" [city]="key" [offers]="favoriteOffers()[key]" [authStatus]="authStatus()"/>
               }
             }
           </ul>

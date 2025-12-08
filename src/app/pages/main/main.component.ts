@@ -7,7 +7,7 @@ import {selectAuthStatus, selectCity, selectOffers,} from '../../store/app/selec
 import {Subject, takeUntil} from 'rxjs';
 import {CardComponent} from '../../shared/card/card.component';
 import {City} from '../../core/models/city';
-import {AuthorizationStatus, CityName, DEFAULT_CITY, SortType,} from '../../core/constants/const';
+import {AppRoute, AuthorizationStatus, CityName, DEFAULT_CITY, SortType,} from '../../core/constants/const';
 import {OffersByCityPipe} from './pipes/offers-by-city.pipe';
 import {ChangeCityDirective} from './directives/change-city.directive';
 import {CityByNamePipe} from './pipes/city-by-name.pipe';
@@ -64,4 +64,6 @@ export class MainComponent implements OnInit {
   public onSortTypeChanged(sortType: SortType): void {
     this.currentSortType.set(sortType);
   }
+
+  protected readonly AppRoute = AppRoute;
 }

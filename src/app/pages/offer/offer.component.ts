@@ -134,4 +134,6 @@ export class OfferComponent implements OnInit {
      this.router.navigate([AppRoute.LOGIN]);
     }
   }
+
+  protected readonly AppRoute = AppRoute;
 }

@@ -8,7 +8,7 @@
     </div>
     <div class="favorites__places">
       @for (offer of offers; track offer.id) {
-        <app-card [offer]="offer" [authStatus]="authStatus"/>
+        <app-card class="favorites__card" [offer]="offer" [pageType]="AppRoute.FAVORITES" [authStatus]="authStatus"/>
       }
     </div>
   </li>

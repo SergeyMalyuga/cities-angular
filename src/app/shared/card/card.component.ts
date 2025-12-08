@@ -19,6 +19,8 @@ import {AsyncPipe} from '@angular/common';
 export class CardComponent {
   @Input({required: true}) offer!: OfferPreview;
   @Input({required: true}) authStatus!: AuthorizationStatus;
+  @Input({required: true}) pageType!: AppRoute;
+
   private store = inject(Store<AppState>);
   private router = inject(Router);
   public isFavoriteOffersLoading$ = this.store.select(

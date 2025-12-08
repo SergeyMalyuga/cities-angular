@@ -1,16 +1,23 @@
-<article class="cities__card place-card">
+<article [class]="(pageType === AppRoute.MAIN ? 'cities__card ' : '') +
+ (pageType === AppRoute.OFFER ? 'near-places__card ' : '') +
+ (pageType === AppRoute.FAVORITES ? 'favorites__card ' : '') +
+ 'place-card'
+">
   @if (offer.isPremium) {
     <div class="place-card__mark">
       <span>Premium</span>
     </div>
   }
-  <div class="cities__image-wrapper place-card__image-wrapper">
+  <div [class]="(pageType === AppRoute.MAIN ? 'cities__image-wrapper ' : '') +
+ (pageType === AppRoute.OFFER ? 'near-places__image-wrapper ' : '') +
+ (pageType === AppRoute.FAVORITES ? 'favorites__image-wrapper ' : '') +
+ 'place-card__image-wrapper'">
     <a [routerLink]="[AppRoute.OFFER, offer.id]">
       <img
         class="place-card__image"
         src="{{ offer.previewImage }}"
-        width="260"
-        height="200"
+        [style.width.px]="pageType === AppRoute.FAVORITES ? '150' : '260'"
+        [style.height.px]="pageType === AppRoute.FAVORITES ? '110' : '200'"
         alt="Place image"
       />
     </a>
