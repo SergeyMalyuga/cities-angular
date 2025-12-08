@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, computed, DestroyRef, inject, OnInit, signal,} from '@angular/core';
 import {HeaderComponent} from '../../shared/header/header.component';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Offer, OfferPreview} from '../../core/models/offers';
 import {OfferService} from '../../core/services/offer.service';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
@@ -16,7 +16,7 @@ import {
   selectIsFavoriteOfferLoading,
   selectIsOfferFavorite,
 } from '../../store/app/selectors/app.selectors';
-import {AuthorizationStatus, FavoriteClass} from '../../core/constants/const';
+import {AppRoute, AuthorizationStatus, FavoriteClass} from '../../core/constants/const';
 import {CommentFormComponent} from '../../features/comment-form/comment-form.component';
 import {SortCommentsByDatePipe} from './pipes/sort-comments-by-date.pipe';
 import {CardComponent} from '../../shared/card/card.component';
@@ -54,6 +54,7 @@ export class OfferComponent implements OnInit {
   private offerService = inject(OfferService);
   private commentService = inject(CommentService);
   private store = inject(Store<AppState>);
+  private router = inject(Router);
   public isFavoriteOffersLoading$ = this.store.select(
     selectIsFavoriteOfferLoading,
   );
@@ -119,14 +120,18 @@ export class OfferComponent implements OnInit {
   }
 
   public onFavoriteOfferToggled() {
-    const id = this.offerId();
-    if (id) {
-      this.store.dispatch(
-        changeFavoriteOfferStatus({
-          offerId: id,
-          status: Number(!this.isFavorite()),
-        }),
-      );
+    if(this.authStatus() === AuthorizationStatus.AUTH) {
+      const id = this.offerId();
+      if (id) {
+        this.store.dispatch(
+          changeFavoriteOfferStatus({
+            offerId: id,
+            status: Number(!this.isFavorite()),
+          }),
+        );
+      }
+    } else {
+     this.router.navigate([AppRoute.LOGIN]);
     }
   }
 }
