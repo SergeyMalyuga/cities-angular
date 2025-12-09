@@ -1,15 +1,25 @@
 <div class="page" [class.page--favorites-empty]="offersAmount() === 0">
-  <app-header/>
-  <main class="page__main page__main--favorites" [class.page__main--favorites-empty]="offersAmount() === 0">
+  <app-header />
+  <main
+    class="page__main page__main--favorites"
+    [class.page__main--favorites-empty]="offersAmount() === 0"
+  >
     <div class="page__favorites-container container">
-      <section class="favorites" [class.favorites--empty]="offersAmount() === 0">
+      <section
+        class="favorites"
+        [class.favorites--empty]="offersAmount() === 0"
+      >
         @if (offersAmount() > 0) {
           <h1 class="favorites__title">Saved listing</h1>
           <ul class="favorites__list">
             @for (key of Object.keys(favoriteOffers()); track key) {
               @if (isKeyOf(key) && favoriteOffers()[key].length > 0) {
-                <app-favorites-list-item class="favorites__locations-items" [city]="key"
-                                         [offers]="favoriteOffers()[key]" [authStatus]="authStatus()"/>
+                <app-favorites-list-item
+                  class="favorites__locations-items"
+                  [city]="key"
+                  [offers]="favoriteOffers()[key]"
+                  [authStatus]="authStatus()"
+                />
               }
             }
           </ul>
@@ -37,4 +47,3 @@
     </a>
   </footer>
 </div>
-

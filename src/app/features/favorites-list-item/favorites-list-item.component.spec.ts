@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FavoritesListItemComponent } from './favorites-list-item.component';
+import {FavoritesListItemComponent} from './favorites-list-item.component';
 
 describe('FavoritesListItemComponent', () => {
   let component: FavoritesListItemComponent;
@@ -8,9 +8,8 @@ describe('FavoritesListItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FavoritesListItemComponent]
-    })
-    .compileComponents();
+      imports: [FavoritesListItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FavoritesListItemComponent);
     component = fixture.componentInstance;

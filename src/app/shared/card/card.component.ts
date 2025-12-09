@@ -17,9 +17,9 @@ import {AsyncPipe} from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {
-  @Input({required: true}) offer!: OfferPreview;
-  @Input({required: true}) authStatus!: AuthorizationStatus;
-  @Input({required: true}) pageType!: AppRoute;
+  @Input({ required: true }) offer!: OfferPreview;
+  @Input({ required: true }) authStatus!: AuthorizationStatus;
+  @Input({ required: true }) pageType!: AppRoute;
 
   private store = inject(Store<AppState>);
   private router = inject(Router);

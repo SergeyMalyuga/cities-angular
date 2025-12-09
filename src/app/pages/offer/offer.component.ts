@@ -16,7 +16,7 @@ import {
   selectIsFavoriteOfferLoading,
   selectIsOfferFavorite,
 } from '../../store/app/selectors/app.selectors';
-import {AppRoute, AuthorizationStatus, FavoriteClass} from '../../core/constants/const';
+import {AppRoute, AuthorizationStatus, FavoriteClass,} from '../../core/constants/const';
 import {CommentFormComponent} from '../../features/comment-form/comment-form.component';
 import {SortCommentsByDatePipe} from './pipes/sort-comments-by-date.pipe';
 import {CardComponent} from '../../shared/card/card.component';
@@ -120,7 +120,7 @@ export class OfferComponent implements OnInit {
   }
 
   public onFavoriteOfferToggled() {
-    if(this.authStatus() === AuthorizationStatus.AUTH) {
+    if (this.authStatus() === AuthorizationStatus.AUTH) {
       const id = this.offerId();
       if (id) {
         this.store.dispatch(
@@ -131,7 +131,7 @@ export class OfferComponent implements OnInit {
         );
       }
     } else {
-     this.router.navigate([AppRoute.LOGIN]);
+      this.router.navigate([AppRoute.LOGIN]);
     }
   }
 

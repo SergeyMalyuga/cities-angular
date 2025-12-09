@@ -187,9 +187,10 @@ template {
   font-family: rubik;
   font-style: normal;
   font-weight: 300;
-  src: url(../fonts/rubik-light.woff2) format("woff2"),
-  url(../fonts/rubik-light.woff) format("woff"),
-  url(../fonts/rubik-light.ttf) format("truetype");
+  src:
+    url(../fonts/rubik-light.woff2) format("woff2"),
+    url(../fonts/rubik-light.woff) format("woff"),
+    url(../fonts/rubik-light.ttf) format("truetype");
   font-display: swap;
 }
 
@@ -197,9 +198,10 @@ template {
   font-family: rubik;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/rubik-regular.woff2) format("woff2"),
-  url(../fonts/rubik-regular.woff) format("woff"),
-  url(../fonts/rubik-regular.ttf) format("truetype");
+  src:
+    url(../fonts/rubik-regular.woff2) format("woff2"),
+    url(../fonts/rubik-regular.woff) format("woff"),
+    url(../fonts/rubik-regular.ttf) format("truetype");
   font-display: swap;
 }
 
@@ -207,9 +209,10 @@ template {
   font-family: rubik;
   font-style: normal;
   font-weight: 500;
-  src: url(../fonts/rubik-medium.woff2) format("woff2"),
-  url(../fonts/rubik-medium.woff) format("woff"),
-  url(../fonts/rubik-medium.ttf) format("truetype");
+  src:
+    url(../fonts/rubik-medium.woff2) format("woff2"),
+    url(../fonts/rubik-medium.woff) format("woff"),
+    url(../fonts/rubik-medium.ttf) format("truetype");
   font-display: swap;
 }
 
@@ -217,9 +220,10 @@ template {
   font-family: rubik;
   font-style: normal;
   font-weight: 700;
-  src: url(../fonts/rubik-bold.woff2) format("woff2"),
-  url(../fonts/rubik-bold.woff) format("woff"),
-  url(../fonts/rubik-bold.ttf) format("truetype");
+  src:
+    url(../fonts/rubik-bold.woff2) format("woff2"),
+    url(../fonts/rubik-bold.woff) format("woff"),
+    url(../fonts/rubik-bold.ttf) format("truetype");
   font-display: swap;
 }
 
@@ -252,10 +256,12 @@ html {
 a {
   color: inherit;
   text-decoration: none;
-  -webkit-transition: color 0.3s,
-  opacity 0.3s;
-  transition: color 0.3s,
-  opacity 0.3s;
+  -webkit-transition:
+    color 0.3s,
+    opacity 0.3s;
+  transition:
+    color 0.3s,
+    opacity 0.3s;
   cursor: pointer;
   outline: 0;
 }
@@ -303,10 +309,12 @@ img {
   word-break: break-word;
   word-wrap: wrap;
   overflow-wrap: break-word;
-  -webkit-transition: color 0.3s,
-  background-color 0.3s;
-  transition: color 0.3s,
-  background-color 0.3s;
+  -webkit-transition:
+    color 0.3s,
+    background-color 0.3s;
+  transition:
+    color 0.3s,
+    background-color 0.3s;
   outline: 0;
 }
 
@@ -325,30 +333,35 @@ img {
   width: 1144px;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, #f5f5f5 509px, transparent 509px),
-  url(../img/amsterdam.jpg);
-  background-position: top left,
-  right top;
+  background-image:
+    linear-gradient(to right, #f5f5f5 509px, transparent 509px),
+    url(../img/amsterdam.jpg);
+  background-position:
+    top left,
+    right top;
   height: 100vh;
-  background-size: auto,
-  auto 100%;
+  background-size:
+    auto,
+    auto 100%;
   background-repeat: no-repeat, no-repeat;
   overflow: hidden;
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5),
-(min-resolution: 144dpi),
-(min-resolution: 1.5dppx) {
+  (min-resolution: 144dpi),
+  (min-resolution: 1.5dppx) {
   .page--login {
-    background-image: linear-gradient(to right, #f5f5f5 509px, transparent 509px),
-    url(../img/amsterdam@2x.jpg);
+    background-image:
+      linear-gradient(to right, #f5f5f5 509px, transparent 509px),
+      url(../img/amsterdam@2x.jpg);
   }
 }
 
 @media (max-height: 720px) {
   .page--login {
-    background-size: auto,
-    auto 715px;
+    background-size:
+      auto,
+      auto 715px;
   }
 }
 
@@ -514,8 +527,9 @@ img {
 
 .header__nav-link:focus,
 .header__nav-link:hover {
-  text-shadow: 0.5px 0 0,
-  -0.5px 0 0;
+  text-shadow:
+    0.5px 0 0,
+    -0.5px 0 0;
 }
 
 .header__avatar-wrapper {
@@ -665,8 +679,8 @@ img {
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5),
-(min-resolution: 144dpi),
-(min-resolution: 1.5dppx) {
+  (min-resolution: 144dpi),
+  (min-resolution: 1.5dppx) {
   .page__main--index-empty .cities__right-section {
     background-image: url(../img/no-places@2x.png);
   }
@@ -699,8 +713,8 @@ img {
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5),
-(min-resolution: 144dpi),
-(min-resolution: 1.5dppx) {
+  (min-resolution: 144dpi),
+  (min-resolution: 1.5dppx) {
   .cities__map {
     background-image: url(../img/map@2x.jpg);
     background-size: 682px 794px;
@@ -772,9 +786,10 @@ img {
 .locations--current .locations__item-link {
   color: #fff;
   background-color: #4481c3;
-  text-shadow: 1px 0 0,
-  0.5px 0 0,
-  -1px 0 0;
+  text-shadow:
+    1px 0 0,
+    0.5px 0 0,
+    -1px 0 0;
 }
 
 .locations__list {
@@ -815,12 +830,14 @@ img {
   -webkit-transform: skew(-15deg);
   transform: skew(-15deg);
   border-radius: 3px;
-  -webkit-transition: background 0.3s,
-  color 0.3s,
-  text-shadow 0.3s;
-  transition: background 0.3s,
-  color 0.3s,
-  text-shadow 0.3s;
+  -webkit-transition:
+    background 0.3s,
+    color 0.3s,
+    text-shadow 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    text-shadow 0.3s;
 }
 
 .locations__item-link span {
@@ -831,15 +848,17 @@ img {
 
 .locations__item-link:focus,
 .locations__item-link:hover {
-  text-shadow: 1px 0 0,
-  0.5px 0 0,
-  -1px 0 0;
+  text-shadow:
+    1px 0 0,
+    0.5px 0 0,
+    -1px 0 0;
 }
 
 .locations__item-link.tabs__item--active {
-  text-shadow: 1px 0 0,
-  0.5px 0 0,
-  -1px 0 0;
+  text-shadow:
+    1px 0 0,
+    0.5px 0 0,
+    -1px 0 0;
   color: #fff;
   background-color: #4481c3;
 }
@@ -994,10 +1013,12 @@ img {
   fill: none;
   stroke: #979797;
   stroke-width: 2;
-  -webkit-transition: fill 0.3s,
-  stroke 0.3s;
-  transition: fill 0.3s,
-  stroke 0.3s;
+  -webkit-transition:
+    fill 0.3s,
+    stroke 0.3s;
+  transition:
+    fill 0.3s,
+    stroke 0.3s;
 }
 
 .place-card__price-value {
@@ -1238,10 +1259,12 @@ img {
   fill: none;
   stroke: #979797;
   stroke-width: 2;
-  -webkit-transition: fill 0.3s,
-  stroke 0.3s;
-  transition: fill 0.3s,
-  stroke 0.3s;
+  -webkit-transition:
+    fill 0.3s,
+    stroke 0.3s;
+  transition:
+    fill 0.3s,
+    stroke 0.3s;
 }
 
 .offer__rating {
@@ -1537,8 +1560,8 @@ img {
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5),
-(min-resolution: 144dpi),
-(min-resolution: 1.5dppx) {
+  (min-resolution: 144dpi),
+  (min-resolution: 1.5dppx) {
   .offer__map {
     background-image: url(../img/map-big@2x.jpg);
     background-size: 1144px auto;
